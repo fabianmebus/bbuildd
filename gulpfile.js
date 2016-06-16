@@ -43,7 +43,6 @@ var gulp = require('gulp-help')(require('gulp'), {
   gulpif = require('gulp-if'),
   access = require('gulp-accessibility'),
   eslint = require('gulp-eslint'),
-  parker = require('gulp-parker'),
   inlineSource = require('gulp-inline-source');
 
 
@@ -68,10 +67,10 @@ gulp.task('build:clean', function () {
  *
  * ========================================================================== */
 
-/*gulp.task('build:copy', function () {
- return gulp.src(['./src/!**!/!*', '!./src/!**!/!*.hbs', '!./src/{partials,partials/!**}', '!./src/{sass,sass/!**}'])
+gulp.task('build:copy', function () {
+ return gulp.src(['./src/**/*', '!./src/**/_*', '!./src/**/*.hbs', '!./src/styles/**/*.scss', '!./src/scripts/**/*.js'])
  .pipe(gulp.dest(buildDirectory))
- });*/
+ });
 
 
 /**
@@ -155,6 +154,7 @@ gulp.task('build', function (done) {
   buildDirectory = isProduction ? './production' : './dist';
   runSequence(
     'build:clean',
+    'build:copy',
     ['build:handlebars', 'build:css', 'build:js'],
     function () {
       done();
