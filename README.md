@@ -1,3 +1,3 @@
 # bbuildd
 
-## test
+**bbuildd** is a simple static site generator.
