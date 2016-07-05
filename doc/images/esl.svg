@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="61px" height="53px" viewBox="0 0 61 53" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="98px" height="114px" viewBox="0 0 98 114" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
     <title>Group 6</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Group-6" transform="translate(-18.000000, -30.000000)">
-            <rect id="Rectangle-1-Copy-2" x="0" y="0" width="97.1053304" height="113.352802"></rect>
+        <g id="Group-6">
+            <rect id="Rectangle-1-Copy-2" fill="#FFFFFF" x="0" y="0" width="97.1053304" height="113.352802"></rect>
             <g id="eslint_logo" transform="translate(18.419830, 30.463565)">
                 <g id="Group">
                     <path d="M18.2046998,18.7998467 L29.5458465,12.2565513 C29.8296561,12.0927465 30.1795008,12.0927465 30.4633104,12.2565513 L41.8046915,18.7998467 C42.0882669,18.9636514 42.2634233,19.266222 42.2634233,19.5938314 L42.2634233,32.6804222 C42.2634233,33.0077977 42.0882669,33.3106023 41.8046915,33.4746411 L30.4633104,40.0179364 C30.1795008,40.1817411 29.8296561,40.1817411 29.5458465,40.0179364 L18.2046998,33.4746411 C17.9208901,33.3108364 17.7459678,33.0080316 17.7459678,32.6804222 L17.7459678,19.5938314 C17.746202,19.266222 17.9211243,18.9636514 18.2046998,18.7998467" id="Shape" fill="#8080F2"></path>
