@@ -212,7 +212,7 @@ gulp.task('develop', 'develop task description.', ['build'], function () {
 gulp.task('optimise:inline-source', function () {
   return gulp.src(buildDirectory + '/**/*.html')
     .pipe(inlineSource({
-      attribute: 'data-bbuildd-inline',
+      attribute: 'data-inline',
       compress: false
     }))
     // todo: delete inlined files
