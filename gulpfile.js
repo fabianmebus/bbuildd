@@ -171,7 +171,7 @@ gulp.task('build', function (done) {
  *
  * ========================================================================== */
 
-gulp.task('develop', 'develop task description.', ['build'], function () {
+gulp.task('develop', 'Starts a dev server, watching source files and auto injects/reloads on changes', ['build'], function () {
 
   var open = argv.dob ? false : 'external';
 
@@ -198,7 +198,7 @@ gulp.task('develop', 'develop task description.', ['build'], function () {
 }, {
   aliases: ['d', 'dev'],
   options: {
-    'dob': 'Don\'t open browser.'
+    'dob': 'Don\'t open a browser.'
   }
 });
 
@@ -260,7 +260,7 @@ gulp.task('validate:js', function () {
  *
  * ========================================================================== */
 
-gulp.task('production', 'production task description.', function (done) {
+gulp.task('production', 'Compiles all source files to the production-folder and performs optimisations and validations', function (done) {
   isProduction = true;
   runSequence(
     'build',
