@@ -2,6 +2,20 @@
 
 **bbuildd** is a simple static site generator.
 
+## Usage
+
+Use the Node.js version you find in the .nvmrc file.
+Clone the repo, install the dependencies and have a look at the available gulp tasks.
+```bash
+git clone https://github.com/fabianmebus/bbuildd.git
+```
+```bash
+npm install
+```
+```bash
+gulp help
+```
+
 ## Technologies
 
 This project is powered by these awesome open-source technologies:
