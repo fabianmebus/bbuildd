@@ -22,9 +22,10 @@
  */
 
 var gulp = require('gulp-help')(require('gulp'), {
-    description: 'Display this help text for all bbuildd gulp tasks.',
+    description: 'Display this help text for the gulp tasks.',
     aliases: ['h'],
-    hideEmpty: true
+    hideEmpty: true,
+    hideDepsMessage: true
   }),
   browserSync = require('browser-sync').create(),
   htmlInjector = require("bs-html-injector"),
@@ -68,9 +69,9 @@ gulp.task('build:clean', function () {
  * ========================================================================== */
 
 gulp.task('build:copy', function () {
- return gulp.src(['./src/**/*', '!./src/**/_*', '!./src/**/*.hbs', '!./src/styles/**/*.scss', '!./src/scripts/**/*.js'])
- .pipe(gulp.dest(buildDirectory))
- });
+  return gulp.src(['./src/**/*', '!./src/**/_*', '!./src/**/*.hbs', '!./src/styles/**/*.scss', '!./src/scripts/**/*.js'])
+    .pipe(gulp.dest(buildDirectory))
+});
 
 
 /**
@@ -171,7 +172,7 @@ gulp.task('build', function (done) {
  *
  * ========================================================================== */
 
-gulp.task('develop', 'Starts a dev server, watching source files and auto injects/reloads on changes', ['build'], function () {
+gulp.task('develop', 'Starts a dev server, watching source files and auto injects/reloads on changes.', ['build'], function () {
 
   var open = argv.dob ? false : 'external';
 
@@ -260,7 +261,7 @@ gulp.task('validate:js', function () {
  *
  * ========================================================================== */
 
-gulp.task('production', 'Compiles all source files to the production-folder and performs optimisations and validations', function (done) {
+gulp.task('production', 'Compiles all source files to the production-folder and performs optimisations and validations.', function (done) {
   isProduction = true;
   runSequence(
     'build',
