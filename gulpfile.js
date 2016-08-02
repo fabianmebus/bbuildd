@@ -47,6 +47,9 @@ var gulp = require('gulp-help')(require('gulp'), {
   inlineSource = require('gulp-inline-source');
 
 
+const path = require('path'),
+  glob = require('glob');
+
 var buildDirectory,
   isProduction = false;
 
@@ -210,13 +213,28 @@ gulp.task('develop', 'Starts a dev server, watching source files and auto inject
  *
  * ========================================================================== */
 
+
+function optimiseInlineSourceDelete(source, context, next) {
+  var currentDirectory = path.dirname(source.filepath);
+  // delete the inlined file
+  del.sync(source.filepath);
+  // delete the folder the inlined file was part of if it is empty
+  if (glob.sync(currentDirectory + '/*.*').length === 0) {
+    del.sync(currentDirectory);
+  }
+  // step to the next file to inline
+  next();
+}
+
+
 gulp.task('optimise:inline-source', function () {
   return gulp.src(buildDirectory + '/**/*.html')
     .pipe(inlineSource({
       attribute: 'data-inline',
-      compress: false
+      compress: false,
+      handlers: [optimiseInlineSourceDelete],
+      swallowErrors: true
     }))
-    // todo: delete inlined files
     .pipe(gulp.dest(buildDirectory));
 });
 
