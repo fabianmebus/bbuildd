@@ -94,7 +94,7 @@ gulp.task('build:handlebars', function () {
       collapseBooleanAttributes: true,
       removeAttributeQuotes: true,
       removeRedundantAttributes: true,
-      removeOptionalTags: false, // todo: true for PROD
+      removeOptionalTags: !!isProduction,
       caseSensitive: true
     }))
     .pipe(rename({extname: '.html'}))
