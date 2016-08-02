@@ -1,3 +1,4 @@
+[![devDependency Status](https://david-dm.org/fabianmebus/bbuildd/dev-status.svg)](https://david-dm.org/fabianmebus/bbuildd?type=dev)
 # bbuildd
 
 **bbuildd** is a simple static site generator.
