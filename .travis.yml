@@ -3,4 +3,4 @@
 # https://docs.travis-ci.com
 
 language: node_js
-script: gulp
+script: gulp production
