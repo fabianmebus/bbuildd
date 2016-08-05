@@ -38,5 +38,11 @@ alt="cssnano logo" width="104" height="114">](http://cssnano.co)
 alt="handlebarsjs logo" width="150" height="114">](http://handlebarsjs.com)
 [<img src="https://fabianmebus.github.io/bbuildd/doc/images/ap.svg" 
 alt="autoprefixer logo" width="123" height="114">](https://github.com/postcss/autoprefixer)
+[<img src="https://fabianmebus.github.io/bbuildd/doc/images/travis-ci.svg" 
+alt="travis ci logo" width="123" height="114">](https://travis-ci.org/)
+[<img src="https://fabianmebus.github.io/bbuildd/doc/images/greenkeeper.svg" 
+alt="greenkeeper logo" width="123" height="114">](https://greenkeeper.io/)
+
+
 
 
