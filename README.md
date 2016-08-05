@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/fabianmebus/bbuildd.svg?branch=master)](https://travis-ci.org/fabianmebus/bbuildd)
 [![devDependency Status](https://david-dm.org/fabianmebus/bbuildd/dev-status.svg)](https://david-dm.org/fabianmebus/bbuildd?type=dev)
 # bbuildd
 
