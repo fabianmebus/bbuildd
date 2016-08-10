@@ -84,7 +84,6 @@ gulp.task('build:copy', function () {
 gulp.task('build:handlebars', function () {
   return gulp.src(['./src/**/*.hbs', '!./src/_*/**'])
     .pipe(hb({
-      debug: true,
       partials: './src/_templates/_partials/**/*.hbs',
       data: './src/_templates/_data/**/*.json'
     }))
