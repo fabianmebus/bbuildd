@@ -3,9 +3,7 @@
 /**
  * todo
  *
- * hb layouts
  * hb data
- * hb helper
  *
  * CSSLint
  * CSS Uglify
@@ -86,7 +84,9 @@ gulp.task('build:copy', function () {
 gulp.task('build:handlebars', function () {
   return gulp.src(['./src/**/*.hbs', '!./src/_*/**'])
     .pipe(hb({
-      partials: './src/_templates/_partials/**/*.hbs'
+      debug: true,
+      partials: './src/_templates/_partials/**/*.hbs',
+      data: './src/_templates/_data/**/*.json'
     }))
     .pipe(htmlmin({
       removeComments: true,
@@ -196,7 +196,7 @@ gulp.task('develop', 'Starts a dev server, watching source files and auto inject
   });
 
   //gulp.watch(['./src/**/*', '!./src/**/*.{html,hbs,scss}'], ['build:copy']);
-  gulp.watch(['./src/**/*.hbs'], ['build:handlebars']);
+  gulp.watch(['./src/**/*.hbs', './src/_templates/_data/**/*.json'], ['build:handlebars']);
   gulp.watch(['./src/styles/**/*.scss'], ['build:css']);
   gulp.watch(['./src/scripts/**/*.js'], ['build:js']);
 }, {

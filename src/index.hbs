@@ -1,23 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>bbuildd</title>
+{{!--
+* Set the data context (src/_templates/_data/index.json) for this page.
+* ========================================================================== --}}
+{{#with index}}
 
-  <link href="styles/styles.css" rel="stylesheet" data-inline>
+{{!--
+* Use the default layout (src/_templates/_partials/_layouts/default.hbs) for
+* this page and set the parameter (page-title) for the layout.
+* ========================================================================== --}}
+  {{#> _layouts/default page-title=page-title}}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <header>
+      <p>page header</p>
+      <h1>{{page-title}}</h1>
+    </header>
 
-</head>
-<body>
+    <main>
+      <p>page main content</p>
+      <p>{{content}}</p>
 
-{{> _site/header }}
 
-{{> _pages/_index/main }}
+      {{> _components/component }}
+    </main>
 
-{{> _site/footer }}
+    <footer>
+      <p>page footer</p>
+    </footer>
 
-<script src="scripts/main.min.js" data-inline></script>
+  {{/_layouts/default}}
 
-</body>
-</html>
+{{/with}}
