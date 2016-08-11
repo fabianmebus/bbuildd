@@ -3,24 +3,24 @@
 /**
  * todo
  *
- * CSS Uglify
- * CSS Specificity Graph Generator
- * SassDoc
- *
  * Images
- * https://www.npmjs.com/package/gulp-imagemin
- * imagemin-mozjpeg
- * imagemin-optipng
- * imagemin-pngquant
- *
- * https://www.npmjs.com/package/gulp-newer
+ * * https://www.npmjs.com/package/gulp-imagemin
+ * * imagemin-mozjpeg
+ * * imagemin-optipng
+ * * imagemin-pngquant
  *
  * Service Worker
- * https://www.npmjs.com/package/sw-precache
- * https://www.npmjs.com/package/sw-toolbox
+ * * https://www.npmjs.com/package/sw-precache
+ * * https://www.npmjs.com/package/sw-toolbox
  *
- * https://www.npmjs.com/package/gulp-load-plugins
- * https://www.npmjs.com/package/gulp-size
+ * Gulp
+ * * https://www.npmjs.com/package/gulp-load-plugins
+ * * https://www.npmjs.com/package/gulp-newer
+ *
+ * Code QA / statistics
+ * * CSS Specificity Graph Generator
+ * * https://www.npmjs.com/package/gulp-size
+ *
  */
 
 var gulp = require('gulp-help')(require('gulp'), {

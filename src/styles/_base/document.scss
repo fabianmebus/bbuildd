@@ -2,9 +2,13 @@ html,
 body {
   background-color: $background;
   color: $text;
-  font-family: 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif;
+  font-family: San Francisco, Roboto, Segoe UI, Helvetica Neue, Lucida Grande, sans-serif;
   font-size: 1.2em;
   margin: 0 auto;
   max-width: 50em;
   padding: 1em;
+}
+
+.this-is-my-class {
+  color: red;
 }
