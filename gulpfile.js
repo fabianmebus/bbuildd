@@ -45,7 +45,7 @@ var gulp = require('gulp-help')(require('gulp'), {
   inlineSource = require('gulp-inline-source');
 
 
-const path = require('path'),
+var path = require('path'),
   glob = require('glob');
 
 var buildDirectory,
@@ -248,7 +248,7 @@ gulp.task('validate:html', function () {
   return gulp.src(buildDirectory + '/**/*.html')
     .pipe(access({
       force: true,
-      accessibilityLevel: 'WCAG2AAA',
+      accessibilityLevel: 'WCAG2AA',
       reportLevels: {
         notice: true,
         warning: true,
