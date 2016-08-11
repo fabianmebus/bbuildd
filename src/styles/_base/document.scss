@@ -1,9 +1,10 @@
-html, body {
-  font-family: "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
-  font-size: 1.2em;
-  color: $text;
+html,
+body {
   background-color: $background;
-  max-width: 50em;
+  color: $text;
+  font-family: 'San Francisco', 'Roboto', 'Segoe UI', 'Helvetica Neue', 'Lucida Grande', sans-serif;
+  font-size: 1.2em;
   margin: 0 auto;
+  max-width: 50em;
   padding: 1em;
 }

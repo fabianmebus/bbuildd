@@ -3,20 +3,24 @@
 /**
  * todo
  *
- * hb data
- *
- * CSSLint
  * CSS Uglify
  * CSS Specificity Graph Generator
  * SassDoc
- * https://github.com/anandthakker/doiuse
  *
  * Images
- * gulp-imagemin
+ * https://www.npmjs.com/package/gulp-imagemin
  * imagemin-mozjpeg
  * imagemin-optipng
  * imagemin-pngquant
  *
+ * https://www.npmjs.com/package/gulp-newer
+ *
+ * Service Worker
+ * https://www.npmjs.com/package/sw-precache
+ * https://www.npmjs.com/package/sw-toolbox
+ *
+ * https://www.npmjs.com/package/gulp-load-plugins
+ * https://www.npmjs.com/package/gulp-size
  */
 
 var gulp = require('gulp-help')(require('gulp'), {
@@ -31,6 +35,7 @@ var gulp = require('gulp-help')(require('gulp'), {
   del = require('del'),
   hb = require('gulp-hb'),
   sass = require('gulp-sass'),
+  sassLint = require('gulp-sass-lint'),
   sourcemaps = require('gulp-sourcemaps'),
   autoprefixer = require('gulp-autoprefixer'),
   rename = require("gulp-rename"),
@@ -260,6 +265,25 @@ gulp.task('validate:html', function () {
 
 
 /**
+ * validate sass
+ *
+ *
+ * ========================================================================== */
+
+gulp.task('validate:sass', function () {
+  return gulp.src('./src/styles/**/*.scss')
+    .pipe(sassLint({
+      rules: {
+        'pseudo-element': 0,
+        'force-pseudo-nesting': 0
+      }
+    }))
+    .pipe(sassLint.format())
+    .pipe(sassLint.failOnError());
+});
+
+
+/**
  * validate js
  *
  *
@@ -283,7 +307,7 @@ gulp.task('production', 'Compiles all source files to the production-folder and 
   runSequence(
     'build',
     'optimise:inline-source',
-    ['validate:html', 'validate:js'],
+    ['validate:html', 'validate:sass', 'validate:js'],
     function () {
       done();
     }
