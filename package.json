@@ -1,6 +1,6 @@
 {
   "name": "bbuildd",
-  "version": "v1.0.0-alpha.1",
+  "version": "v1.0.0-alpha.2",
   "description": "bbuildd is a simple static site generator.",
   "author": "Fabian Mebus <hello@fabianmebus.com>",
   "repository": {
