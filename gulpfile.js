@@ -3,11 +3,6 @@
 /**
  * todo
  *
- * Images
- * * https://www.npmjs.com/package/gulp-imagemin
- * * imagemin-mozjpeg
- * * imagemin-optipng
- * * imagemin-pngquant
  *
  * Service Worker
  * * https://www.npmjs.com/package/sw-precache
@@ -18,7 +13,7 @@
  * * https://www.npmjs.com/package/gulp-newer
  *
  * Code QA / statistics
- * * CSS Specificity Graph Generator
+ * * https://www.npmjs.com/package/specificity-graph
  * * https://www.npmjs.com/package/gulp-size
  *
  */
@@ -42,6 +37,7 @@ var gulp = require('gulp-help')(require('gulp'), {
   runSequence = require('run-sequence'),
   cssnano = require('gulp-cssnano'),
   htmlmin = require('gulp-htmlmin'),
+  imagemin = require('gulp-imagemin'),
   concat = require('gulp-concat'),
   uglify = require('gulp-uglify'),
   gulpif = require('gulp-if'),
@@ -75,7 +71,14 @@ gulp.task('build:clean', function () {
  * ========================================================================== */
 
 gulp.task('build:copy', function () {
-  return gulp.src(['./src/**/*', '!./src/**/_*', '!./src/**/*.hbs', '!./src/styles/**/*.scss', '!./src/scripts/**/*.js'])
+  return gulp.src([
+    './src/**/*',
+    '!./src/**/_*',
+    '!./src/**/*.hbs',
+    '!./src/styles/**/*.scss',
+    '!./src/scripts/**/*.js',
+    '!./src/images/**/*'
+  ])
     .pipe(gulp.dest(buildDirectory))
 });
 
@@ -103,6 +106,22 @@ gulp.task('build:handlebars', function () {
     }))
     .pipe(rename({extname: '.html'}))
     .pipe(gulp.dest(buildDirectory));
+});
+
+
+/**
+ * images
+ *
+ *
+ * ========================================================================== */
+
+gulp.task('build:images', function () {
+  return gulp.src('./src/images/**/*')
+    .pipe(imagemin({
+      progressive: true,
+      interlaced: true
+    }))
+    .pipe(gulp.dest(buildDirectory + '/images'));
 });
 
 
@@ -163,7 +182,7 @@ gulp.task('build', function (done) {
   runSequence(
     'build:clean',
     'build:copy',
-    ['build:handlebars', 'build:css', 'build:js'],
+    ['build:handlebars', 'build:images', 'build:css', 'build:js'],
     function () {
       done();
     }
@@ -201,6 +220,7 @@ gulp.task('develop', 'Starts a dev server, watching source files and auto inject
 
   //gulp.watch(['./src/**/*', '!./src/**/*.{html,hbs,scss}'], ['build:copy']);
   gulp.watch(['./src/**/*.hbs', './src/_templates/_data/**/*.json'], ['build:handlebars']);
+  gulp.watch(['./src/images/**/*'], ['build:images']);
   gulp.watch(['./src/styles/**/*.scss'], ['build:css']);
   gulp.watch(['./src/scripts/**/*.js'], ['build:js']);
 }, {
