@@ -44,7 +44,7 @@ alt="autoprefixer logo" width="123" height="114">](https://github.com/postcss/au
 alt="travis ci logo" width="123" height="114">](https://travis-ci.org/)
 [<img src="https://fabianmebus.github.io/bbuildd/doc/images/greenkeeper.svg" 
 alt="greenkeeper logo" width="123" height="114">](https://greenkeeper.io/)
-[<img src="https://fabianmebus.github.io/bbuildd/doc/images/imagemin.svg" 
+[<img src="https://fabianmebus.github.io/bbuildd/doc/images/imagemin.png" 
 alt="imagemin logo" width="123" height="114">](https://github.com/imagemin)
 
 
