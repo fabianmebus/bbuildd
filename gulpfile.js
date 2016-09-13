@@ -14,9 +14,22 @@
  *
  * Code QA / statistics
  * * https://www.npmjs.com/package/specificity-graph
+ * * http://macr.ae/article/splitting-gulpfile-multiple-files.html
  * * https://www.npmjs.com/package/gulp-size
  *
  */
+
+
+var PATH_BUILD_DEVELOPMENT = './dist';
+var PATH_BUILD_PRODUCTION = './production';
+
+var PATH_SOURCE_TEMPLATES = './src/_templates';
+var PATH_SOURCE_STYLES = './src/styles';
+var PATH_SOURCE_SCRIPTS = './src/scripts';
+var PATH_SOURCE_IMAGES = './src/images';
+
+var AUTOPREFIXER_BROWSERS = ['> 1%', 'last 2 versions', 'Firefox ESR'];
+
 
 var gulp = require('gulp-help')(require('gulp'), {
     description: 'Display this help text for the gulp tasks.',
@@ -73,11 +86,11 @@ gulp.task('build:clean', function () {
 gulp.task('build:copy', function () {
   return gulp.src([
     './src/**/*',
-    '!./src/**/_*',
     '!./src/**/*.hbs',
-    '!./src/styles/**/*.scss',
-    '!./src/scripts/**/*.js',
-    '!./src/images/**/*'
+    '!./src/**/{_*,_*/**}',
+    '!' + PATH_SOURCE_STYLES + '/**/*.scss',
+    '!' + PATH_SOURCE_SCRIPTS + '/**/*.js',
+    '!' + PATH_SOURCE_IMAGES + '/**/*'
   ])
     .pipe(gulp.dest(buildDirectory))
 });
@@ -92,8 +105,8 @@ gulp.task('build:copy', function () {
 gulp.task('build:handlebars', function () {
   return gulp.src(['./src/**/*.hbs', '!./src/_*/**'])
     .pipe(hb({
-      partials: './src/_templates/_partials/**/*.hbs',
-      data: './src/_templates/_data/**/*.json'
+      partials: PATH_SOURCE_TEMPLATES + '/_partials/**/*.hbs',
+      data: PATH_SOURCE_TEMPLATES + '/_data/**/*.json'
     }))
     .pipe(htmlmin({
       removeComments: true,
@@ -116,7 +129,7 @@ gulp.task('build:handlebars', function () {
  * ========================================================================== */
 
 gulp.task('build:images', function () {
-  return gulp.src('./src/images/**/*')
+  return gulp.src(PATH_SOURCE_IMAGES + '/**/*.{jpg,jpeg,png,gif,svg}')
     .pipe(imagemin({
       progressive: true,
       interlaced: true
@@ -132,10 +145,10 @@ gulp.task('build:images', function () {
  * ========================================================================== */
 
 gulp.task('build:css', function () {
-  return gulp.src('./src/styles/*.scss')
+  return gulp.src(PATH_SOURCE_STYLES + '/*.scss')
     .pipe(gulpif(!isProduction, sourcemaps.init()))
     .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR'], cascade: false}))
+    .pipe(autoprefixer({browsers: AUTOPREFIXER_BROWSERS, cascade: false}))
     .pipe(cssnano())
     .pipe(gulpif(!isProduction, sourcemaps.write('./source-maps')))
     .pipe(gulp.dest(buildDirectory + '/styles'))
@@ -151,11 +164,11 @@ gulp.task('build:css', function () {
 
 gulp.task('build:js', function () {
   return gulp.src(
-    './src/scripts/**/*.js'
+    PATH_SOURCE_SCRIPTS + '/**/*.js'
     // if the order is important, use an array
     /*[
-     './src/scripts/1.js',
-     './src/scripts/2.js'
+     PATH_SOURCE_SCRIPTS + '/1.js',
+     PATH_SOURCE_SCRIPTS + '/2.js'
      ]*/
   )
     .pipe(gulpif(!isProduction, sourcemaps.init()))
@@ -178,7 +191,7 @@ gulp.task('build:js', function () {
  * ========================================================================== */
 
 gulp.task('build', function (done) {
-  buildDirectory = isProduction ? './production' : './dist';
+  buildDirectory = isProduction ? PATH_BUILD_PRODUCTION : PATH_BUILD_DEVELOPMENT;
   runSequence(
     'build:clean',
     'build:copy',
@@ -218,11 +231,10 @@ gulp.task('develop', 'Starts a dev server, watching source files and auto inject
     timestamps: false
   });
 
-  //gulp.watch(['./src/**/*', '!./src/**/*.{html,hbs,scss}'], ['build:copy']);
-  gulp.watch(['./src/**/*.hbs', './src/_templates/_data/**/*.json'], ['build:handlebars']);
-  gulp.watch(['./src/images/**/*'], ['build:images']);
-  gulp.watch(['./src/styles/**/*.scss'], ['build:css']);
-  gulp.watch(['./src/scripts/**/*.js'], ['build:js']);
+  gulp.watch(['./src/**/*.hbs', PATH_SOURCE_TEMPLATES + '/_data/**/*.json'], ['build:handlebars']);
+  gulp.watch([PATH_SOURCE_IMAGES + '/**/*'], ['build:images']);
+  gulp.watch([PATH_SOURCE_STYLES + '/**/*.scss'], ['build:css']);
+  gulp.watch([PATH_SOURCE_SCRIPTS + '/**/*.js'], ['build:js']);
 }, {
   aliases: ['d', 'dev'],
   options: {
@@ -291,7 +303,7 @@ gulp.task('validate:html', function () {
  * ========================================================================== */
 
 gulp.task('validate:sass', function () {
-  return gulp.src('./src/styles/**/*.scss')
+  return gulp.src(PATH_SOURCE_STYLES + '/**/*.scss')
     .pipe(sassLint({
       rules: {
         'pseudo-element': 0,
@@ -310,7 +322,7 @@ gulp.task('validate:sass', function () {
  * ========================================================================== */
 
 gulp.task('validate:js', function () {
-  return gulp.src('./src/scripts/**/*.js')
+  return gulp.src(PATH_SOURCE_SCRIPTS + '/**/*.js')
     .pipe(eslint())
     .pipe(eslint.format());
 });
