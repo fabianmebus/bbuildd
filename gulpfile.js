@@ -1,25 +1,5 @@
 'use strict';
 
-/**
- * todo
- *
- *
- * Service Worker
- * * https://www.npmjs.com/package/sw-precache
- * * https://www.npmjs.com/package/sw-toolbox
- *
- * Gulp
- * * https://www.npmjs.com/package/gulp-load-plugins
- * * https://www.npmjs.com/package/gulp-newer
- *
- * Code QA / statistics
- * * https://www.npmjs.com/package/specificity-graph
- * * http://macr.ae/article/splitting-gulpfile-multiple-files.html
- * * https://www.npmjs.com/package/gulp-size
- *
- */
-
-
 var PATH_BUILD_DEVELOPMENT = './dist';
 var PATH_BUILD_PRODUCTION = './production';
 
