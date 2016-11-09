@@ -273,6 +273,8 @@ gulp.task('validate:html', function () {
       }
     }))
     .on('error', console.log);
+}, {
+  aliases: ['vh']
 });
 
 
@@ -292,6 +294,8 @@ gulp.task('validate:sass', function () {
     }))
     .pipe(sassLint.format())
     .pipe(sassLint.failOnError());
+}, {
+  aliases: ['vs']
 });
 
 
@@ -305,6 +309,8 @@ gulp.task('validate:js', function () {
   return gulp.src(PATH_SOURCE_SCRIPTS + '/**/*.js')
     .pipe(eslint())
     .pipe(eslint.format());
+}, {
+  aliases: ['vj']
 });
 
 
