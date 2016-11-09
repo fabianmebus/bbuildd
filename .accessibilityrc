@@ -1,0 +1,9 @@
+{
+  "force": true,
+  "accessibilityLevel": "WCAG2AA",
+  "reportLevels": {
+    "notice": true,
+    "warning": true,
+    "error": true
+  }
+}

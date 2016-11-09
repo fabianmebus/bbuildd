@@ -263,15 +263,7 @@ gulp.task('optimise:inline-source', function () {
 
 gulp.task('validate:html', function () {
   return gulp.src(buildDirectory + '/**/*.html')
-    .pipe(access({
-      force: true,
-      accessibilityLevel: 'WCAG2AA',
-      reportLevels: {
-        notice: true,
-        warning: true,
-        error: true
-      }
-    }))
+    .pipe(access())
     .on('error', console.log);
 }, {
   aliases: ['vh']
