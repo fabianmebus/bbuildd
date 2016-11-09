@@ -1,6 +1,6 @@
 {
   "name": "bbuildd",
-  "version": "v1.0.0-alpha.4",
+  "version": "v1.0.0-alpha.5",
   "description": "bbuildd is a simple static site generator.",
   "author": "Fabian Mebus <hello@fabianmebus.com>",
   "repository": {
@@ -11,7 +11,7 @@
     "url": "https://github.com/fabianmebus/bbuildd/issues"
   },
   "engines": {
-    "node": "5.11.0"
+    "node": "6.5.0"
   },
   "devDependencies": {
     "browser-sync": "^2.12.10",
