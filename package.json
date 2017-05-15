@@ -14,7 +14,7 @@
     "node": "6.5.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.12.10",
+    "browser-sync": "^2.18.11",
     "bs-html-injector": "^3.0.1",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
