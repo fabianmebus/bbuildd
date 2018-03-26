@@ -1,10 +1,9 @@
 [![GitHub version](https://badge.fury.io/gh/fabianmebus%2Fbbuildd.svg)](https://github.com/fabianmebus/bbuildd/releases)
 [![Build Status](https://travis-ci.org/fabianmebus/bbuildd.svg?branch=master)](https://travis-ci.org/fabianmebus/bbuildd)
-[![devDependency Status](https://david-dm.org/fabianmebus/bbuildd/dev-status.svg)](https://david-dm.org/fabianmebus/bbuildd?type=dev)
-[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](LICENSE.md)
-# bbuildd
-
 [![Greenkeeper badge](https://badges.greenkeeper.io/fabianmebus/bbuildd.svg)](https://greenkeeper.io/)
+[![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](LICENSE.md)
+
+# bbuildd
 
 **bbuildd** is a simple static site generator.
 
