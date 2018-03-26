@@ -4,6 +4,8 @@
 [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](LICENSE.md)
 # bbuildd
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/fabianmebus/bbuildd.svg)](https://greenkeeper.io/)
+
 **bbuildd** is a simple static site generator.
 
 ## Usage
