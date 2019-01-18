@@ -25,7 +25,7 @@
     "gulp-eslint": "^4.0.2",
     "gulp-hb": "^7.0.1",
     "gulp-help": "^1.6.1",
-    "gulp-htmlmin": "^4.0.0",
+    "gulp-htmlmin": "^5.0.0",
     "gulp-if": "^2.0.1",
     "gulp-imagemin": "^4.1.0",
     "gulp-inline-source": "^3.0.0",
