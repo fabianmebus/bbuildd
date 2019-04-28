@@ -16,7 +16,7 @@
   "devDependencies": {
     "browser-sync": "^2.12.10",
     "bs-html-injector": "^3.0.1",
-    "del": "^3.0.0",
+    "del": "^4.1.1",
     "gulp": "^3.9.1",
     "gulp-accessibility": "^3.0.1",
     "gulp-autoprefixer": "^5.0.0",
