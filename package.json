@@ -26,7 +26,7 @@
     "gulp-hb": "^7.0.1",
     "gulp-help": "^1.6.1",
     "gulp-htmlmin": "^5.0.0",
-    "gulp-if": "^2.0.1",
+    "gulp-if": "^3.0.0",
     "gulp-imagemin": "^4.1.0",
     "gulp-inline-source": "^3.0.0",
     "gulp-rename": "^1.2.2",
