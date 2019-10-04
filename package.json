@@ -19,7 +19,7 @@
     "del": "^3.0.0",
     "gulp": "^3.9.1",
     "gulp-accessibility": "^3.0.1",
-    "gulp-autoprefixer": "^5.0.0",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.2",
     "gulp-eslint": "^4.0.2",
